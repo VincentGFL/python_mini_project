@@ -3,6 +3,8 @@ services:
     service1:
       image: service1:latest
       build: ./service1
+      deploy:
+        replicas: 2
       ports:
       - target: 5000
         published: 5000
@@ -12,6 +14,8 @@ services:
     service2:
       image: service2:latest      
       build: ./service2
+      deploy:
+        replicas: 2
       ports:
       - target: 5001
         protocol: tcp
