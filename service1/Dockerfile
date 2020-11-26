@@ -3,4 +3,4 @@ WORKDIR /service1
 RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 5000
-ENTRYPOINT ["pytest", "python", "app.py"]
+ENTRYPOINT ["python", "app.py"]
