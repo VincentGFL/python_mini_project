@@ -4,4 +4,4 @@ RUN sudo apt update
 RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 5000
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["pytest", "python", "app.py"]
