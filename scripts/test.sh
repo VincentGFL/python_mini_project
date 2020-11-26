@@ -1,5 +1,10 @@
 #! /bin/bash
 
-pip3 install pytest
-python3 -m pytest ./service1 --cov ./service1/application
-python3 -m pytest ./service2 --cov ./service2/application
+docker build -t testing-image -f testing/Dockerfile .
+docker run -it -d --name testing-container testing-image
+
+docker exec testing-container pytest ./service1 --cov ./service1
+docker exec testing-container pytest ./service2 --cov ./service2
+
+docker stop testing-container
+docker rm testing-container
