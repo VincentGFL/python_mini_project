@@ -13,6 +13,12 @@ pipeline{
                     sh "./scripts/build.sh"
                 }
             }
+	    stage('Push'){
+                steps{
+                    sh "chmod +x -R ${env.WORKSPACE}"
+                    sh "./scripts/push.sh"
+                }
+            }
 	    stage('Deploy'){
                 steps{
 		    sh "chmod +x -R ${env.WORKSPACE}"
